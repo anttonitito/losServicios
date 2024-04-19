@@ -1,0 +1,67 @@
+
+<!--
+  <div class="container mt-5">
+    <div class="articulo" *ngFor="let articulo of articulos">
+      <h4 (click)="irAlDetalle(articulo)">{{articulo.titulo}}</h4>
+      <p>{{articulo.descripcion}}</p>
+      <p>{{articulo.fecha}}</p>
+      <p>{{articulo.usuario}}</p>
+    </div>
+    
+</div>
+
+-->
+
+<div *ngIf="UsuarioInyectado.esOscuro">
+
+  <div class="container text-center mt-2 bg-dark text-light">
+    <h1>Mis Cursos</h1>
+  </div>
+  
+
+<div  class="row mt-5">
+  <div class="card shadow mb-3 container bg-dark text-light" style="max-width: 540px;" *ngFor="let articulo of articulos">
+      <div class="row no-gutters" >
+        <div (click)="irAlDetalle(articulo)" class="col-md-4 d-flex justify-content-center align-items-center custom-cursor-pointer ">
+          <img src="{{articulo.imagen}}" class="card-img" alt="...">
+        </div>
+        <div class="col-md-8">
+          <div class="card-body">
+            <h5 class="card-title custom-cursor-pointer text-light" (click)="irAlDetalle(articulo)">{{articulo.titulo}}</h5>
+            <p class="card-text text-light">{{articulo.descripcion}}</p>
+            <p class="card-text text-light">{{articulo.fecha}}</p>
+            <p class="card-text text-light"><small>{{articulo.usuario}}</small></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+</div>
+  
+<div *ngIf="!UsuarioInyectado.esOscuro" >
+  
+  <div  class="container text-center mt-2">
+    <h1>Mis Cursos</h1>
+  </div>
+
+
+  <div class="row mt-5">
+    <div class="card  shadow mb-3 container" style="max-width: 540px;" *ngFor="let articulo of articulos">
+      <div class="row no-gutters" >
+        <div (click)="irAlDetalle(articulo)" class="col-md-4 d-flex justify-content-center align-items-center custom-cursor-pointer ">
+          <img src="{{articulo.imagen}}" class="card-img" alt="...">
+        </div>
+        <div class="col-md-8">
+          <div class="card-body">
+            <h5 class="card-title custom-cursor-pointer" (click)="irAlDetalle(articulo)">{{articulo.titulo}}</h5>
+            <p class="card-text">{{articulo.descripcion}}</p>
+            <p class="card-text">{{articulo.fecha}}</p>
+            <p class="card-text"><small class="text-muted">{{articulo.usuario}}</small></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+</div>
